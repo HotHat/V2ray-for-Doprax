@@ -10,7 +10,7 @@ ENV UUID de04add9-5c68-8bab-950c-08cd5320df18
 ENV VMESS_WSPATH /vmess
 ENV VLESS_WSPATH /vless
 ENV PRIVATE_KEY private_key
-ENV CERTIFICATE certificate
+ENV CERTIFICATE_CRT certificate
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -19,8 +19,8 @@ COPY doprax.key /etc/nginx/doprax.key
 
 
 RUN mkdir /etc/v2ray /usr/local/v2ray
-COPY config.json /etc/v2ray/
-COPY entrypoint.sh /usr/local/v2ray/
+COPY config.json /etc/v2ray/config.json
+COPY entrypoint.sh /usr/local/v2ray/entrypoint.sh
 
 # 感谢 fscarmen 大佬提供 Dockerfile 层优化方案
 RUN wget -q -O /tmp/v2ray-linux-64.zip https://github.com/v2fly/v2ray-core/releases/download/v5.4.1/v2ray-linux-64.zip && \
