@@ -12,6 +12,9 @@ ENV VLESS_WSPATH /vless
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY doprax.crt /etc/nginx/doprax.crt
+COPY doprax.key /etc/nginx/doprax.key
+
 
 RUN mkdir /etc/v2ray /usr/local/v2ray
 COPY config.json /etc/v2ray/
