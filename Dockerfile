@@ -9,6 +9,8 @@ RUN apk update && apk add --no-cache supervisor wget unzip curl
 ENV UUID de04add9-5c68-8bab-950c-08cd5320df18
 ENV VMESS_WSPATH /vmess
 ENV VLESS_WSPATH /vless
+ENV PRIVATE_KEY private_key
+ENV CERTIFICATE certificate
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY nginx.conf /etc/nginx/nginx.conf
